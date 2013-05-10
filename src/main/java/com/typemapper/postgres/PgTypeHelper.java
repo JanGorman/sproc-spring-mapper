@@ -98,7 +98,7 @@ public class PgTypeHelper {
      *
      * @return  SQL type
      */
-    public static final int getSQLType(final String typeName) {
+    public static int getSQLType(final String typeName) {
         String trimmedTypeName = typeName.trim().toLowerCase(Locale.US);
         final Integer n = pgGenericTypeNameToSQLTypeMap.get(trimmedTypeName);
         if (n == null) {
