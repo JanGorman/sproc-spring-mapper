@@ -24,7 +24,7 @@ abstract class AbstractPgCollectionSerializer<E> extends AbstractPgSerializer {
 
     @Override
     protected final String getEmpty() {
-        return new StringBuilder(2).append(getOpeningChar()).append(getClosingChar()).toString();
+        return String.valueOf(getOpeningChar()) + getClosingChar();
     }
 
     @Override

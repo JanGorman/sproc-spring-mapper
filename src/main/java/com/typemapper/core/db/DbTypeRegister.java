@@ -69,7 +69,7 @@ public class DbTypeRegister {
                 final int fieldPosition = resultSet.getInt(i++);
                 final boolean isArray = resultSet.getBoolean(i++);
 
-                addField(typeSchema, typeName, fieldName, fieldPosition, fieldType, fieldTypeName, typeType, isArray);
+                addField(typeSchema, typeName, fieldName, fieldPosition, fieldType, fieldTypeName, typeType);
             }
         } finally {
             if (resultSet != null) {
@@ -99,8 +99,7 @@ public class DbTypeRegister {
     }
 
     private void addField(final String typeSchema, final String typeName, final String fieldName,
-            final int fieldPosition, final String fieldType, final String fieldTypeName, final String typeType,
-            final boolean isArray) {
+            final int fieldPosition, final String fieldType, final String fieldTypeName, final String typeType) {
         final String typeId = getTypeIdentifier(typeSchema, typeName);
         DbType type = types.get(typeId);
         if (type == null) {

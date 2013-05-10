@@ -26,7 +26,7 @@ public class ObjectFieldMapper {
             return null;
         }
 
-        Object result = null;
+        Object result;
 
         // instantiate enums by string value
         if (clazz.isEnum()) {

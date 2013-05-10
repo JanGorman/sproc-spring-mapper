@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +21,6 @@ import com.typemapper.core.fieldMapper.FieldMapperRegister;
 import com.typemapper.core.fieldMapper.ValueTransformerFieldMapper;
 
 import com.typemapper.exception.NotsupportedTypeException;
-
 
 public class Mapping {
 
@@ -56,15 +56,11 @@ public class Mapping {
     static List<Mapping> getMappingsForClass(final Class clazz, final boolean embed, final Field embedField) {
         final List<Mapping> result = new ArrayList<Mapping>();
         final List<Field> fields = new LinkedList<Field>();
-        for (final Field field : clazz.getDeclaredFields()) {
-            fields.add(field);
-        }
+        Collections.addAll(fields, clazz.getDeclaredFields());
 
         Class parentClass = clazz.getSuperclass();
         while (parentClass != null) {
-            for (final Field field : parentClass.getDeclaredFields()) {
-                fields.add(field);
-            }
+            Collections.addAll(fields, parentClass.getDeclaredFields());
 
             parentClass = parentClass.getSuperclass();
         }
@@ -264,7 +260,7 @@ public class Mapping {
     private Object getEmbedFieldValue(final Object target) throws IllegalArgumentException, IllegalAccessException,
         InvocationTargetException {
         final Method setter = getGetter(embedField);
-        Object result = null;
+        Object result;
         if (setter != null) {
             result = setter.invoke(target);
         } else {

@@ -426,8 +426,7 @@ public class HStore extends PGobject implements Iterable<Map.Entry<String, Strin
             if (sb == null) {
 
                 // we consumed the last quote
-                String r = value.substring(firstQuotePosition + 1, position);
-                return r;
+                return value.substring(firstQuotePosition + 1, position);
             } else {
                 return sb.toString();
             }
@@ -450,8 +449,7 @@ public class HStore extends PGobject implements Iterable<Map.Entry<String, Strin
             position--;
 
             // substring is using quite a strange way of defining end position
-            final String r = value.substring(firstWordPosition, position + 1);
-            return r;
+            return value.substring(firstWordPosition, position + 1);
         }
 
         @Override

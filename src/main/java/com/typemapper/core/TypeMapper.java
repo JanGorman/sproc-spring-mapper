@@ -42,7 +42,7 @@ public class TypeMapper<ITEM> implements ParameterizedRowMapper<ITEM> {
 
     @Override
     public ITEM mapRow(final ResultSet set, final int count) throws SQLException {
-        ITEM result = null;
+        ITEM result;
         try {
 
             result = getResultClass().newInstance();
