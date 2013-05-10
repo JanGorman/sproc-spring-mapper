@@ -25,7 +25,7 @@ public class AbstractTest {
         // Get connection
         Class.forName("org.postgresql.Driver");
 
-        final String url = "jdbc:postgresql://localhost/postgres";
+        final String url = "jdbc:postgresql://localhost:5433/postgres";
         final Properties props = new Properties();
         props.setProperty("user", "postgres");
         props.setProperty("password", "postgres");
