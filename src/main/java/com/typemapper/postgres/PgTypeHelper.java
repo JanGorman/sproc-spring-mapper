@@ -146,8 +146,7 @@ public class PgTypeHelper {
             return null;
         }
 
-        final String typeName = javaGenericClassToPgTypeNameMap.get(elementClass);
-        return typeName;
+        return javaGenericClassToPgTypeNameMap.get(elementClass);
     }
 
     public static String camelCaseToUnderScore(final String camelCaseName) {
