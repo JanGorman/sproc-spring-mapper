@@ -60,7 +60,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>3.0.4.RELEASE</version>
+            <version>5.1.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>javax.persistence</groupId>
